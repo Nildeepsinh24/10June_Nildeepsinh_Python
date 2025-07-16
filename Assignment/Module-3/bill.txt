@@ -1,0 +1,14 @@
+        Food Billing System
+================================
+Customer Name : B
+Mobile Number : 9876543214
+Date          : 02-07-2025
+--------------------------------
+Food Item : Burger
+Price     : 90.00
+Quantity  : 4
+--------------------------------
+Total   : 360.00
+18% GST : 64.80
+--------------------------------
+Grand Total : 424.80
