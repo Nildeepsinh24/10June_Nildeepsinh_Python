@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard - TaskBuddy</title>
+</head>
+<body style="font-family:sans-serif;text-align:center;">
+    <h2>Welcome, {{ user }} ({{ role }})</h2>
+    <a href="/logout">Logout</a>
+    <hr>
+
+    <form method="POST">
+        <input name="title" placeholder="New Task" required>
+        <button type="submit">Add Task</button>
+    </form>
+
+    <h3>Your Tasks</h3>
+    <table border="1" align="center">
+        <tr><th>Task</th><th>Status</th><th>Actions</th></tr>
+        {% for t in tasks %}
+        <tr>
+            <td>{{ t.title }}</td>
+            <td>{{ t.status }}</td>
+            <td>
+                <a href="/complete/{{ loop.index0 }}"> ✅ </a> | 
+                <a href="/delete/{{ loop.index0 }}"> 🗑️ </a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}<p style="color:green;">{{ messages[0] }}</p>{% endif %}
+    {% endwith %}
+</body>
+</html>
